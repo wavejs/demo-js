@@ -9,6 +9,7 @@
 <body>
   <div id="container"></div>
   <div id="container-img"></div>
+  <div id="container-package"></div>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.7/react.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.7/react-dom.min.js"></script>
@@ -34,6 +35,14 @@
   var ImgFactory = React.createFactory(ImgComponent);
   
   ReactDOM.render(ImgFactory({srcs: 'http://cdn.movieweb.com/img.site/PHHuToMmMy2iLI_1_l.jpg', alt: 'wonder woman'}), document.getElementById('container-img'));
+  
+  var PackComponent = React.createClass({
+    render: function () {
+      return React.DOM.div({id: this.props.ids}, DemoFactory({msg: 'Show me the money!!'}), ImgFactory({srcs: 'http://cdn.movieweb.com/img.site/PHHuToMmMy2iLI_1_l.jpg', alt: 'wonder woman again!'}));
+    }
+  });
+  var PackFactory = React.createFactory(PackComponent);
+  ReactDOM.render(PackFactory({ids: 'packs'}), document.getElementById('container-package'));
   </script>
 </body>
 
